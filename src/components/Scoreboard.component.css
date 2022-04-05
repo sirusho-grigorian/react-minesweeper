@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "digital-7";
+  src: url("../fonts/digital-7.ttf");
+}
+
+.scoreboard {
+  display: flex;
+  padding-bottom: 12px;
+  justify-content: space-between;
+  border: 6px solid #e3e3e3;
+  background-color: #e3e3e3;
+
+  padding: 10px;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: stretch;
+  height: 26px;
+  position: relative;
+  background-color: #bfbfbf;
+  text-align: center;
+  border-top: 3px solid #707070;
+  border-left: 3px solid #707070;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+}
+
+.digital-counter {
+  color: red;
+  background-color: #000000;
+  font-family: "digital-7", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+
+  padding: 0 4px;
+  border: 3px inset;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  background: #333;
+  text-shadow: 0 0 2px red;
+}
+
+.scoreboard .digital-counter:first-of-type {
+  margin-right: 5px;
+}
+
+.scoreboard .digital-counter:last-of-type {
+  margin-left: 5px;
+}
+
+.scoreboard .reset {
+  padding: 0 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  height: 26px;
+  border-width: 3px;
+  border-style: solid;
+  background-color: #d1d1d1;
+  border-color: white #9e9e9e #9e9e9e white;
+}
+
+.scoreboard .select-wrap select {
+  margin: 0;
+  height: 26px;
+  border-radius: 0;
+  border-width: 3px;
+  border-style: solid;
+  background-color: #d1d1d1;
+  border-color: white #9e9e9e #9e9e9e white;
+  width: 4.5rem;
+  font-size: 0.75rem;
+}
+
+.scoreboard .select-wrap {
+  font-weight: 700;
+  vertical-align: top;
+  display: inline-block;
+  margin-bottom: 10px;
+}

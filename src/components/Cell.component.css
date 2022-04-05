@@ -1,0 +1,84 @@
+.cell:active,
+.cell:focus,
+.cell {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+
+  margin: 0px;
+  padding: 0px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #bfbfbf;
+  display: inline-block;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-right: 3px solid #707070;
+  border-bottom: 3px solid #707070;
+}
+
+.uncovered-cell:active,
+.uncovered-cell:focus,
+.uncovered-cell {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-weight: 900;
+  background-color: white;
+  border: 0.5px;
+  border-style: solid;
+  border-color: rgb(41, 41, 41);
+  outline: none;
+  border-collapse: collapse;
+  border-spacing: unset;
+  font-size: 0.8rem;
+  background-color: #bfbfbf;
+}
+
+.row {
+  display: flex;
+}
+
+.minesweeper {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  background-color: #bfbfbf;
+}
+
+.cell-1 {
+  color: blue;
+}
+
+.cell-2 {
+  color: green;
+}
+
+.cell-3 {
+  color: red;
+}
+
+.cell-4 {
+  color: navy;
+}
+
+.cell-5 {
+  color: brown;
+}
+
+.cell-6 {
+  color: cyan;
+}
+
+.cell-7 {
+  color: black;
+}
+
+.cell-8 {
+  color: grey;
+}
+
+.clicked-mine:active,
+.clicked-mine:focus,
+.clicked-mine {
+  background-color: red;
+}
