@@ -1,4 +1,4 @@
-import React$1, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 
 const gameStatuses = {
   notStarted: "notStarted",
@@ -28,29 +28,29 @@ const levels = [{
 
 function DigitalCounter(props) {
   const str = "" + props.value;
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "digital-counter"
   }, str.padStart(3, '0'));
 }
 
 function Scoreboard(props) {
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "scoreboard"
-  }, /*#__PURE__*/React$1.createElement(DigitalCounter, {
+  }, /*#__PURE__*/React.createElement(DigitalCounter, {
     value: props.minesLeft
-  }), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "select-wrap"
-  }, /*#__PURE__*/React$1.createElement("select", {
+  }, /*#__PURE__*/React.createElement("select", {
     onChange: e => props.levelChangeHandler(e.target.value),
     value: props.level
-  }, levels.map(l => /*#__PURE__*/React$1.createElement("option", {
+  }, levels.map(l => /*#__PURE__*/React.createElement("option", {
     key: l.id,
     value: l.id
-  }, " ", l.text, " ")))), /*#__PURE__*/React$1.createElement(GameStatus, {
+  }, " ", l.text, " ")))), /*#__PURE__*/React.createElement(GameStatus, {
     status: props.gameStatus,
     onClickHandler: props.resetHandler,
     isClicking: props.isClicking
-  })), /*#__PURE__*/React$1.createElement(DigitalCounter, {
+  })), /*#__PURE__*/React.createElement(DigitalCounter, {
     value: props.timer
   }));
 }
@@ -65,7 +65,7 @@ function GameStatus(props) {
     }
   }
 
-  return /*#__PURE__*/React$1.createElement("button", {
+  return /*#__PURE__*/React.createElement("button", {
     className: "reset",
     onClick: props.onClickHandler
   }, props.isClicking ? '😲' : getStatusEmoji(props.status));
@@ -153,7 +153,7 @@ function Cell(props) {
   const content = props.data.isCovered ? props.data.flagged ? '🚩' : '' : props.data.isMine ? '💣' : props.data.neighboringMines > 0 ? props.data.neighboringMines : '';
   const clickedMine = props.data.clickedMine ? 'clicked-mine' : '';
   const callbacks = useLongPress(() => props.handleRightClick(props.data), () => props.handleLeftClick(props.data));
-  return /*#__PURE__*/React$1.createElement("button", _extends({
+  return /*#__PURE__*/React.createElement("button", _extends({
     className: `${cell} ${number} ${mine} ${clickedMine}`
   }, callbacks), content);
 }
@@ -249,10 +249,10 @@ function MinesweeperGrid(props) {
     }
   }
 
-  return grid.map((r, i) => /*#__PURE__*/React$1.createElement("div", {
+  return grid.map((r, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     className: "row"
-  }, r.map((c, j) => /*#__PURE__*/React$1.createElement(Cell, {
+  }, r.map((c, j) => /*#__PURE__*/React.createElement(Cell, {
     key: j,
     data: c,
     handleLeftClick: handleLeftClick,
@@ -361,23 +361,45 @@ function useTimer(isActive, reset) {
 }
 
 function Minesweeper() {
-  const [level, setLevel] = useState(levels[0]);
-  const [minesLeft, setMinesLeft] = useState(level.minesCount);
-  const [gameStatus, setGameStatus] = useState(gameStatuses.notStarted);
-  const [grid, setGrid] = useState(getNewGrid(level.height, level.width, level.minesCount));
-  const [refresh, setRefresh] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
-  const timer = useTimer(gameStatus === gameStatuses.running, gameStatus === gameStatuses.notStarted);
+  var _useState = useState(levels[0]),
+      level = _useState[0],
+      setLevel = _useState[1];
+
+  var _useState2 = useState(level.minesCount),
+      minesLeft = _useState2[0],
+      setMinesLeft = _useState2[1];
+
+  var _useState3 = useState(gameStatuses.notStarted),
+      gameStatus = _useState3[0],
+      setGameStatus = _useState3[1];
+
+  var _useState4 = useState(getNewGrid(level.height, level.width, level.minesCount)),
+      grid = _useState4[0],
+      setGrid = _useState4[1];
+
+  var _useState5 = useState(false),
+      refresh = _useState5[0],
+      setRefresh = _useState5[1];
+
+  var _useState6 = useState(false),
+      isClicking = _useState6[0],
+      setIsClicking = _useState6[1];
+
+  var timer = useTimer(gameStatus === gameStatuses.running, gameStatus === gameStatuses.notStarted);
   useEffect(reset, [level]);
 
   function reset() {
     setGameStatus(gameStatuses.notStarted);
     setMinesLeft(level.minesCount);
     setGrid(getNewGrid(level.height, level.width, level.minesCount));
-    setRefresh(refresh => !refresh);
+    setRefresh(function (refresh) {
+      return !refresh;
+    });
   }
 
-  const isGameOver = () => gameStatus === gameStatuses.won || gameStatus === gameStatuses.lost;
+  var isGameOver = function isGameOver() {
+    return gameStatus === gameStatuses.won || gameStatus === gameStatuses.lost;
+  };
 
   function cellGotFlagged(flagged) {
     if (flagged) {
@@ -407,9 +429,9 @@ function Minesweeper() {
     }
   }
 
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "minesweeper"
-  }, /*#__PURE__*/React$1.createElement(Scoreboard, {
+  }, /*#__PURE__*/React.createElement(Scoreboard, {
     minesLeft: minesLeft,
     timer: timer,
     gameStatus: gameStatus,
@@ -417,12 +439,18 @@ function Minesweeper() {
     levelChangeHandler: levelChangeHandler,
     isClicking: isClicking,
     resetHandler: reset
-  }), /*#__PURE__*/React$1.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "grid",
-    onMouseDown: () => setIsClicking(true),
-    onMouseUp: () => setIsClicking(false),
-    onMouseLeave: () => setIsClicking(false)
-  }, /*#__PURE__*/React$1.createElement(MinesweeperGrid, {
+    onMouseDown: function onMouseDown() {
+      return setIsClicking(true);
+    },
+    onMouseUp: function onMouseUp() {
+      return setIsClicking(false);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setIsClicking(false);
+    }
+  }, /*#__PURE__*/React.createElement(MinesweeperGrid, {
     refresh: refresh,
     grid: grid,
     gameOver: isGameOver(),
@@ -432,11 +460,5 @@ function Minesweeper() {
   })));
 }
 
-function App() {
-  return /*#__PURE__*/React.createElement("div", {
-    className: "App"
-  }, /*#__PURE__*/React.createElement(Minesweeper, null));
-}
-
-export default App;
+export default Minesweeper;
 //# sourceMappingURL=index.modern.js.map
