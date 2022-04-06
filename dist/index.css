@@ -1,0 +1,238 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+._1o-Fp {
+  text-align: center;
+}
+
+._3JCPt {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ._3JCPt {
+    animation: _RvI1J infinite 20s linear;
+  }
+}
+
+._3iH8L {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+._13fTZ {
+  color: #61dafb;
+}
+
+@keyframes _RvI1J {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: "digital-7";
+  src: url("../fonts/digital-7.ttf");
+}
+
+._2-H2R {
+  display: flex;
+  padding-bottom: 12px;
+  justify-content: space-between;
+  border: 6px solid #e3e3e3;
+  background-color: #e3e3e3;
+
+  padding: 10px;
+  width: -webkit-fill-available;
+  width: stretch;
+  height: 26px;
+  position: relative;
+  background-color: #bfbfbf;
+  text-align: center;
+  border-top: 3px solid #707070;
+  border-left: 3px solid #707070;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+}
+
+._2l1XT {
+  color: red;
+  background-color: #000000;
+  font-family: "digital-7", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+
+  padding: 0 4px;
+  border: 3px inset;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  background: #333;
+  text-shadow: 0 0 2px red;
+}
+
+._2-H2R ._2l1XT:first-of-type {
+  margin-right: 5px;
+}
+
+._2-H2R ._2l1XT:last-of-type {
+  margin-left: 5px;
+}
+
+._2-H2R ._3-6eV {
+  padding: 0 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  height: 26px;
+  border-width: 3px;
+  border-style: solid;
+  background-color: #d1d1d1;
+  border-color: white #9e9e9e #9e9e9e white;
+}
+
+._2-H2R ._6zGPg select {
+  margin: 0;
+  height: 26px;
+  border-radius: 0;
+  border-width: 3px;
+  border-style: solid;
+  background-color: #d1d1d1;
+  border-color: white #9e9e9e #9e9e9e white;
+  width: 4.5rem;
+  font-size: 0.75rem;
+}
+
+._2-H2R ._6zGPg {
+  font-weight: 700;
+  vertical-align: top;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+._DGfTL:active,
+._DGfTL:focus,
+._DGfTL {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+
+  margin: 0px;
+  padding: 0px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #bfbfbf;
+  display: inline-block;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-right: 3px solid #707070;
+  border-bottom: 3px solid #707070;
+}
+
+._11-7j:active,
+._11-7j:focus,
+._11-7j {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-weight: 900;
+  background-color: white;
+  border: 0.5px;
+  border-style: solid;
+  border-color: rgb(41, 41, 41);
+  outline: none;
+  border-collapse: collapse;
+  border-spacing: unset;
+  font-size: 0.8rem;
+  background-color: #bfbfbf;
+}
+
+._16wEm {
+  display: flex;
+}
+
+._1-F_o {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  background-color: #bfbfbf;
+}
+
+._acliN {
+  color: blue;
+}
+
+._3lOJv {
+  color: green;
+}
+
+._1VNhb {
+  color: red;
+}
+
+._1H824 {
+  color: navy;
+}
+
+._1CtBN {
+  color: brown;
+}
+
+._3wNmP {
+  color: cyan;
+}
+
+._1pjnW {
+  color: black;
+}
+
+._nrnXl {
+  color: grey;
+}
+
+._12yIP:active,
+._12yIP:focus,
+._12yIP {
+  background-color: red;
+}
+
+._360fN {
+  border: 8px solid #bfbfbf;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+._2PB8q {
+  font-family: "Doppio One", sans-serif;
+  width: auto;
+  height: auto;
+  background-color: #bfbfbf;
+  border-top: 5px solid #7a7a7a;
+  border-left: 5px solid #7a7a7a;
+  border-bottom: 5px solid white;
+  border-right: 5px solid white;
+}

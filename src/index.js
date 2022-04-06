@@ -1,5 +1,5 @@
 import React from "react";
-
-import App from "./src/App";
+import "./index.css";
+import App from "./App";
 
 export default App;
