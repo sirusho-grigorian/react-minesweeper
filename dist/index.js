@@ -18,15 +18,15 @@ const levels = [{
 }, {
   id: 1,
   text: "Intermediate",
-  height: 16,
-  width: 16,
-  minesCount: 44
+  height: 15,
+  width: 15,
+  minesCount: 40
 }, {
   id: 2,
   text: "Expert",
-  height: 30,
-  width: 30,
-  minesCount: 100
+  height: 20,
+  width: 20,
+  minesCount: 60
 }];
 
 function DigitalCounter(props) {
