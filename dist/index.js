@@ -1,27 +1,7 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-function _interopNamespace(e) {
-  if (e && e.__esModule) { return e; } else {
-    var n = {};
-    if (e) {
-      Object.keys(e).forEach(function (k) {
-        var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(n, k, d.get ? d : {
-          enumerable: true,
-          get: function () {
-            return e[k];
-          }
-        });
-      });
-    }
-    n['default'] = e;
-    return n;
-  }
-}
-
 var React$1 = require('react');
 var React$1__default = _interopDefault(React$1);
-var ReactDOM = _interopDefault(require('react-dom'));
 
 const gameStatuses = {
   notStarted: "notStarted",
@@ -446,28 +426,6 @@ function App() {
     className: "App"
   }, /*#__PURE__*/React.createElement(Minesweeper, null));
 }
-
-const reportWebVitals = onPerfEntry => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    new Promise(function (resolve) { resolve(_interopNamespace(require('web-vitals'))); }).then(_ref => {
-      let {
-        getCLS,
-        getFID,
-        getFCP,
-        getLCP,
-        getTTFB
-      } = _ref;
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
-    });
-  }
-};
-
-ReactDOM.render( /*#__PURE__*/React$1__default.createElement(React$1__default.StrictMode, null, /*#__PURE__*/React$1__default.createElement(App, null)), document.getElementById("root"));
-reportWebVitals(console.log);
 
 module.exports = App;
 //# sourceMappingURL=index.js.map

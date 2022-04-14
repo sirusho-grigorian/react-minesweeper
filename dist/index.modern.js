@@ -1,5 +1,4 @@
 import React$1, { useState, useRef, useCallback, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 
 const gameStatuses = {
   notStarted: "notStarted",
@@ -424,28 +423,6 @@ function App() {
     className: "App"
   }, /*#__PURE__*/React.createElement(Minesweeper, null));
 }
-
-const reportWebVitals = onPerfEntry => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(_ref => {
-      let {
-        getCLS,
-        getFID,
-        getFCP,
-        getLCP,
-        getTTFB
-      } = _ref;
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
-    });
-  }
-};
-
-ReactDOM.render( /*#__PURE__*/React$1.createElement(React$1.StrictMode, null, /*#__PURE__*/React$1.createElement(App, null)), document.getElementById("root"));
-reportWebVitals(console.log);
 
 export default App;
 //# sourceMappingURL=index.modern.js.map
