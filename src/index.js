@@ -1,4 +1,5 @@
-import "./index.css";
-import App from "./App";
+import React from "react";
 
-export default App;
+import Minesweeper from "./components/Minesweeper";
+
+export default Minesweeper;

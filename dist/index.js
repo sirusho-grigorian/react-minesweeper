@@ -1,7 +1,7 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var React$1 = require('react');
-var React$1__default = _interopDefault(React$1);
+var React = require('react');
+var React__default = _interopDefault(React);
 
 const gameStatuses = {
   notStarted: "notStarted",
@@ -25,21 +25,21 @@ const levels = [{
 
 function DigitalCounter(props) {
   const str = "" + props.value;
-  return /*#__PURE__*/React$1__default.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: "digital-counter"
   }, str.padStart(3, '0'));
 }
 
 function Scoreboard(props) {
-  return /*#__PURE__*/React$1__default.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: "scoreboard"
-  }, /*#__PURE__*/React$1__default.createElement(DigitalCounter, {
+  }, /*#__PURE__*/React__default.createElement(DigitalCounter, {
     value: props.minesLeft
-  }), /*#__PURE__*/React$1__default.createElement(GameStatus, {
+  }), /*#__PURE__*/React__default.createElement(GameStatus, {
     status: props.gameStatus,
     onClickHandler: props.resetHandler,
     isClicking: props.isClicking
-  }), /*#__PURE__*/React$1__default.createElement(DigitalCounter, {
+  }), /*#__PURE__*/React__default.createElement(DigitalCounter, {
     value: props.timer
   }));
 }
@@ -54,7 +54,7 @@ function GameStatus(props) {
     }
   }
 
-  return /*#__PURE__*/React$1__default.createElement("button", {
+  return /*#__PURE__*/React__default.createElement("button", {
     className: "reset",
     onClick: props.onClickHandler
   }, props.isClicking ? "😲" : getStatusEmoji(props.status));
@@ -83,10 +83,10 @@ function useLongPress(onLongPress, onClick, _temp) {
     shouldPreventDefault = true,
     delay = 300
   } = _temp === void 0 ? {} : _temp;
-  const [longPressTriggered, setLongPressTriggered] = React$1.useState(false);
-  const timeout = React$1.useRef();
-  const target = React$1.useRef();
-  const start = React$1.useCallback(event => {
+  const [longPressTriggered, setLongPressTriggered] = React.useState(false);
+  const timeout = React.useRef();
+  const target = React.useRef();
+  const start = React.useCallback(event => {
     if (shouldPreventDefault && event.target) {
       event.target.addEventListener("touchend", preventDefault, {
         passive: false
@@ -99,7 +99,7 @@ function useLongPress(onLongPress, onClick, _temp) {
       setLongPressTriggered(true);
     }, delay);
   }, [onLongPress, delay, shouldPreventDefault]);
-  const clear = React$1.useCallback(function (event, shouldTriggerClick) {
+  const clear = React.useCallback(function (event, shouldTriggerClick) {
     if (shouldTriggerClick === void 0) {
       shouldTriggerClick = true;
     }
@@ -142,14 +142,14 @@ function Cell(props) {
   const content = props.data.isCovered ? props.data.flagged ? '🚩' : '' : props.data.isMine ? '💣' : props.data.neighboringMines > 0 ? props.data.neighboringMines : '';
   const clickedMine = props.data.clickedMine ? 'clicked-mine' : '';
   const callbacks = useLongPress(() => props.handleRightClick(props.data), () => props.handleLeftClick(props.data));
-  return /*#__PURE__*/React$1__default.createElement("button", _extends({
+  return /*#__PURE__*/React__default.createElement("button", _extends({
     className: `${cell} ${number} ${mine} ${clickedMine}`
   }, callbacks), content);
 }
 
 function MinesweeperGrid(props) {
-  const [grid, setGrid] = React$1.useState(props.grid);
-  const [refresh, setRefresh] = React$1.useState(props.refresh);
+  const [grid, setGrid] = React.useState(props.grid);
+  const [refresh, setRefresh] = React.useState(props.refresh);
 
   if (refresh !== props.refresh) {
     setRefresh(props.refresh);
@@ -238,10 +238,10 @@ function MinesweeperGrid(props) {
     }
   }
 
-  return grid.map((r, i) => /*#__PURE__*/React$1__default.createElement("div", {
+  return grid.map((r, i) => /*#__PURE__*/React__default.createElement("div", {
     key: i,
     className: "row"
-  }, r.map((c, j) => /*#__PURE__*/React$1__default.createElement(Cell, {
+  }, r.map((c, j) => /*#__PURE__*/React__default.createElement(Cell, {
     key: j,
     data: c,
     handleLeftClick: handleLeftClick,
@@ -328,8 +328,8 @@ function getNewGrid(length, width, minesCount) {
 }
 
 function useTimer(isActive, reset) {
-  const [timer, setTimer] = React$1.useState(0);
-  React$1.useEffect(() => {
+  const [timer, setTimer] = React.useState(0);
+  React.useEffect(() => {
     let interval = null;
 
     if (isActive && !interval) {
@@ -350,23 +350,45 @@ function useTimer(isActive, reset) {
 }
 
 function Minesweeper() {
-  const [level, setLevel] = React$1.useState(levels[0]);
-  const [minesLeft, setMinesLeft] = React$1.useState(level.minesCount);
-  const [gameStatus, setGameStatus] = React$1.useState(gameStatuses.notStarted);
-  const [grid, setGrid] = React$1.useState(getNewGrid(level.height, level.width, level.minesCount));
-  const [refresh, setRefresh] = React$1.useState(false);
-  const [isClicking, setIsClicking] = React$1.useState(false);
-  const timer = useTimer(gameStatus === gameStatuses.running, gameStatus === gameStatuses.notStarted);
-  React$1.useEffect(reset, [level]);
+  var _useState = React.useState(levels[0]),
+      level = _useState[0],
+      setLevel = _useState[1];
+
+  var _useState2 = React.useState(level.minesCount),
+      minesLeft = _useState2[0],
+      setMinesLeft = _useState2[1];
+
+  var _useState3 = React.useState(gameStatuses.notStarted),
+      gameStatus = _useState3[0],
+      setGameStatus = _useState3[1];
+
+  var _useState4 = React.useState(getNewGrid(level.height, level.width, level.minesCount)),
+      grid = _useState4[0],
+      setGrid = _useState4[1];
+
+  var _useState5 = React.useState(false),
+      refresh = _useState5[0],
+      setRefresh = _useState5[1];
+
+  var _useState6 = React.useState(false),
+      isClicking = _useState6[0],
+      setIsClicking = _useState6[1];
+
+  var timer = useTimer(gameStatus === gameStatuses.running, gameStatus === gameStatuses.notStarted);
+  React.useEffect(reset, [level]);
 
   function reset() {
     setGameStatus(gameStatuses.notStarted);
     setMinesLeft(level.minesCount);
     setGrid(getNewGrid(level.height, level.width, level.minesCount));
-    setRefresh(refresh => !refresh);
+    setRefresh(function (refresh) {
+      return !refresh;
+    });
   }
 
-  const isGameOver = () => gameStatus === gameStatuses.won || gameStatus === gameStatuses.lost;
+  var isGameOver = function isGameOver() {
+    return gameStatus === gameStatuses.won || gameStatus === gameStatuses.lost;
+  };
 
   function cellGotFlagged(flagged) {
     if (flagged) {
@@ -396,9 +418,9 @@ function Minesweeper() {
     }
   }
 
-  return /*#__PURE__*/React$1__default.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: "minesweeper"
-  }, /*#__PURE__*/React$1__default.createElement(Scoreboard, {
+  }, /*#__PURE__*/React__default.createElement(Scoreboard, {
     minesLeft: minesLeft,
     timer: timer,
     gameStatus: gameStatus,
@@ -406,12 +428,18 @@ function Minesweeper() {
     levelChangeHandler: levelChangeHandler,
     isClicking: isClicking,
     resetHandler: reset
-  }), /*#__PURE__*/React$1__default.createElement("div", {
+  }), /*#__PURE__*/React__default.createElement("div", {
     className: "grid",
-    onMouseDown: () => setIsClicking(true),
-    onMouseUp: () => setIsClicking(false),
-    onMouseLeave: () => setIsClicking(false)
-  }, /*#__PURE__*/React$1__default.createElement(MinesweeperGrid, {
+    onMouseDown: function onMouseDown() {
+      return setIsClicking(true);
+    },
+    onMouseUp: function onMouseUp() {
+      return setIsClicking(false);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setIsClicking(false);
+    }
+  }, /*#__PURE__*/React__default.createElement(MinesweeperGrid, {
     refresh: refresh,
     grid: grid,
     gameOver: isGameOver(),
@@ -421,11 +449,5 @@ function Minesweeper() {
   })));
 }
 
-function App() {
-  return /*#__PURE__*/React.createElement("div", {
-    className: "App"
-  }, /*#__PURE__*/React.createElement(Minesweeper, null));
-}
-
-module.exports = App;
+module.exports = Minesweeper;
 //# sourceMappingURL=index.js.map
